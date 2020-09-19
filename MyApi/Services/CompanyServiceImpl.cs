@@ -33,9 +33,9 @@ namespace MyApi.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> CompanyExistsAsync(Guid companyId)
+        public async Task<bool> CompanyExistsAsync(Guid companyId)
         {
-            throw new NotImplementedException();
+            return await _context.Companies.AnyAsync(x => x.Id == companyId);
         }
 
         public void DeleteCompany(Company company)
